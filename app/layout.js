@@ -12,14 +12,17 @@ const cairo = Cairo({
 export const metadata = {
   title: "SpiceCo | بهارات وحبوب",
   description: "أجود أنواع البهارات والحبوب.",
-  icons: {
-    icon: { url: "/fav.png", type: "image/png" },
-  },
+  // icons: {
+  //   icon: { url: "/fav.png", type: "image/png" },
+  // },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl" data-scroll-behavior="smooth">
+      <head>
+        <link rel="icon" href="/fav.png" />
+      </head>
       <body className={cairo.className}>
         <Navbar />
         <main>{children}</main>
