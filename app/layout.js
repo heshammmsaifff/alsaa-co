@@ -10,7 +10,7 @@ const cairo = Cairo({
 });
 
 export const metadata = {
-  title: "SpiceCo | بهارات وحبوب",
+  title: "الصاع | بهارات وحبوب",
   description: "أجود أنواع البهارات والحبوب.",
   // icons: {
   //   icon: { url: "/fav.png", type: "image/png" },
