@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
-
+import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-100 pt-10">
@@ -23,19 +22,22 @@ export default function Footer() {
           <h3 className="font-bold mb-4">روابط سريعة</h3>
           <ul className="space-y-2 text-gray-300">
             <li>
-              <a href="/" className="hover:text-green-400 transition">
+              <Link href="/" className="hover:text-green-400 transition">
                 الرئيسية
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#products" className="hover:text-green-400 transition">
+              <Link
+                href="#products"
+                className="hover:text-green-400 transition"
+              >
                 منتجاتنا
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#offers" className="hover:text-green-400 transition">
+              <Link href="#offers" className="hover:text-green-400 transition">
                 العروض
-              </a>
+              </Link>
             </li>
             <li>
               <a href="/contact" className="hover:text-green-400 transition">
@@ -57,25 +59,6 @@ export default function Footer() {
             </li>
             <li> العنوان: المملكة العربية السعودية</li>
           </ul>
-        </div>
-
-        {/* Social Media */}
-        <div>
-          <h3 className="font-bold mb-4">تابعنا على</h3>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-green-400">
-              <Facebook />
-            </a>
-            <a href="#" className="hover:text-green-400">
-              <Instagram />
-            </a>
-            <a href="#" className="hover:text-green-400">
-              <Twitter />
-            </a>
-            <a href="#" className="hover:text-green-400">
-              <Linkedin />
-            </a>
-          </div>
         </div>
       </div>
 

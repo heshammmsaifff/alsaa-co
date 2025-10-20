@@ -38,12 +38,12 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex justify-between items-center py-4 h-18">
         {/* 🌿 Logo */}
-        <a
+        <Link
           href="/"
           className="text-2xl md:text-3xl font-extrabold text-green-800 hover:text-green-700 transition duration-300 flex items-center gap-2 mx-auto sm:mx-0"
         >
           🌿
-        </a>
+        </Link>
 
         {/* ☰ Menu Button (Mobile) */}
         <button

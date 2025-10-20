@@ -45,7 +45,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* 🟢 زخرفة بسيطة أسفل الصورة */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/40 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 from-white/40 to-transparent"></div>
     </section>
   );
 };

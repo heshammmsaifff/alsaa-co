@@ -48,10 +48,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-black/50 backdrop-blur-[3px] offers" />
         <div className="relative z-10">
-          <h2
-            className="p-7 text-5xl md:text-6xl font-extrabold text-center bg-clip-text
-    bg-gradient-to-r text-white drop-shadow-lg"
-          >
+          <h2 className="p-7 text-5xl md:text-6xl font-extrabold text-center bg-clip-text text-white drop-shadow-lg">
             أحدث العروض
           </h2>
 
@@ -64,7 +61,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/40 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 from-white/40 to-transparent"></div>
       </section>
 
       {/* loop1 Component */}
