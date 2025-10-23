@@ -27,8 +27,8 @@ export default function Products() {
       image: "/herbs.jpg",
     },
     {
-      title: "منتج بدون صورة",
-      description: "هذا المنتج لا يحتوي على صورة، سيستخدم placeholder.",
+      title: "منتج 4",
+      description: "وصف المنتج 4",
       image: null,
     },
     { title: "منتج 5", description: "وصف المنتج 5", image: null },
