@@ -11,10 +11,10 @@ const cairo = Cairo({
 
 export const metadata = {
   title: "الصاع | بهارات وحبوب",
-  description: "أجود أنواع البهارات والحبوب.",
-  // icons: {
-  //   icon: { url: "/fav.png", type: "image/png" },
-  // },
+  description: "أجود أنواع البهارات والحبوب من متجر الصاع",
+  keywords: "بهارات, حبوب, توابل, الصاع, متجر بهارات",
+  authors: [{ name: "الصاع", url: "https://alsaa-co.netlify.app/" }],
+  creator: "الصاع",
 };
 
 export default function RootLayout({ children }) {
