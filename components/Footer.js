@@ -52,11 +52,11 @@ export default function Footer() {
           <h3 className="font-bold mb-4">تواصل معنا</h3>
           <ul className="space-y-2 text-gray-300">
             <li dir="ltr" className="text-right">
-              +20 123 456 7890
+              +966 50 036 5101
             </li>
-            <li dir="ltr" className="text-right">
+            {/* <li dir="ltr" className="text-right">
               info@example.com
-            </li>
+            </li> */}
             <li> العنوان: المملكة العربية السعودية</li>
           </ul>
         </div>

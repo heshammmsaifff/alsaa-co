@@ -12,31 +12,130 @@ export default function Products() {
 
   const products = [
     {
-      title: "بهارات مشكلة",
-      description: "أجود أنواع البهارات الطبيعية المختارة بعناية.",
-      image: "/spices.jpg",
-    },
-    {
-      title: "حبوب متنوعة",
-      description: "حبوب صحية وطبيعية لجميع الاستخدامات.",
-      image: "/beans.jpg",
-    },
-    {
-      title: "أعشاب طبيعية",
-      description: "أعشاب طازجة ومنوعة لأفضل نكهة.",
-      image: "/herbs.jpg",
-    },
-    {
-      title: "منتج 4",
-      description: "وصف المنتج 4",
+      title: "ذرة حمراء بلدي",
+      description:
+        "حبوب طبيعية بطعم أصيل تضيف غنى ولونًا مميزًا لأطباقك التقليدية.",
       image: null,
     },
-    { title: "منتج 5", description: "وصف المنتج 5", image: null },
-    { title: "منتج 6", description: "وصف المنتج 6", image: null },
-    { title: "منتج 7", description: "وصف المنتج 7", image: null },
-    { title: "منتج 8", description: "وصف المنتج 8", image: null },
-    { title: "منتج 9", description: "وصف المنتج 9", image: null },
-    { title: "منتج 10", description: "وصف المنتج 10", image: null },
+    {
+      title: "ذرة بيضاء بلدي",
+      description: "ذرة نقية وناعمة بطعم ريفي يعبّر عن جودة الزراعة المحلية.",
+      image: null,
+    },
+    {
+      title: "حبش وطني",
+      description: "حبوب مختارة بعناية بطابع سعودي أصيل وجودة تفوق التوقعات.",
+      image: null,
+    },
+    {
+      title: "بر قصيمي",
+      description:
+        "بر فاخر من أرض القصيم بطعم تراثي غني ومذاق يعبّر عن الأصالة.",
+      image: null,
+    },
+    {
+      title: "دخن يمني",
+      description:
+        "دخن طبيعي عالي الجودة بطعم فريد يمنح أطباقك نكهة شرقية مميزة.",
+      image: null,
+    },
+    {
+      title: "شعير وطني",
+      description:
+        "شعير سعودي نقي مثالي للمشروبات أو الوصفات الصحية التقليدية.",
+      image: null,
+    },
+    {
+      title: "دخن هندي",
+      description:
+        "حبوب دخن فاخرة بطابع هندي تضيف نكهة عميقة ولمسة مميزة لأكلك.",
+      image: null,
+    },
+    {
+      title: "سدر ناعم",
+      description:
+        "سدر طبيعي مطحون برائحة زكية وفوائد لا تُعدّ من قلب الطبيعة.",
+      image: null,
+    },
+    {
+      title: "كمون مطحون",
+      description: "كمون طازج بطعم قوي يضيف نكهة عربية أصيلة لكل وجبة.",
+      image: null,
+    },
+    {
+      title: "فلفل أسود مطحون",
+      description:
+        "فلفل أسود فاخر برائحة نفّاذة تعزز طعم الأطباق وتزيدها تميزًا.",
+      image: null,
+    },
+    {
+      title: "كزبرة مطحون",
+      description:
+        "كزبرة مطحونة طازجة بنكهة دافئة تعطي أطباقك لمسة عطرية لذيذة.",
+      image: null,
+    },
+    {
+      title: "زعتر بري حبشي",
+      description:
+        "زعتر جبلي عطِر من أجود الأنواع بنكهة طبيعية قوية وطابع بري أصيل.",
+      image: null,
+    },
+    {
+      title: "إكليل الجبل حبشي",
+      description: "أعشاب عطرية فاخرة تضيف لمسة راقية ونكهة منعشة لأطعمتك.",
+      image: null,
+    },
+    {
+      title: "كركم حبشي",
+      description: "كركم نقي بلون ذهبي زاهي يعزز النكهة ويضفي لمسة صحية مميزة.",
+      image: null,
+    },
+    {
+      title: "كركديه مصري",
+      description: "كركديه طبيعي بلونه الأحمر الغني وطعمه المنعش لكل الأوقات.",
+      image: null,
+    },
+    {
+      title: "كركم مطحون",
+      description:
+        "كركم مطحون عالي الجودة يضيف لونًا زاهيًا ونكهة مميزة لوصفاتك.",
+      image: null,
+    },
+    {
+      title: "زنجبيل",
+      description:
+        "زنجبيل طبيعي بطعمه الحار العطري المثالي للمشروبات والأكلات الشرقية.",
+      image: null,
+    },
+    {
+      title: "سمسم",
+      description:
+        "سمسم محمص طازج بنكهة غنية يكمّل الحلويات والمخبوزات بأصالة.",
+      image: null,
+    },
+    {
+      title: "كزبر حب",
+      description: "كزبرة حبوب طازجة تمنح نكهة قوية وعطر مميز في كل طبق.",
+      image: null,
+    },
+    {
+      title: "شيبة",
+      description:
+        "عشبة عطرية مميزة بطعم قوي تُستخدم لإضافة نكهة تقليدية أصيلة.",
+      image: null,
+    },
+    {
+      title: "دجرة",
+      description:
+        "حبوب طبيعية غنية بالطعم والمذاق الريفي، مثالية للوصفات الشعبية.",
+      image: null,
+    },
+    {
+      title: "مشكل حمام",
+      description:
+        "خليط فاخر من الحبوب المختارة لتغذية متكاملة ومتوازنة للحمام.",
+      image: null,
+    },
   ];
 
   // helper validators
@@ -147,7 +246,7 @@ export default function Products() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
-            transition={{ duration: 0.6, delay: idx * 0.08, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: false, amount: 0.3 }}
             whileHover={{ scale: 1.03, y: -5, transition: { duration: 0.15 } }}
             className="bg-white rounded-2xl shadow-md p-5 flex flex-col items-center text-center transition-all duration-300"

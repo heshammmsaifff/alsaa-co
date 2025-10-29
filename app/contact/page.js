@@ -15,7 +15,7 @@ export default function Contact() {
   });
   const [loading, setLoading] = useState(false);
 
-  const whatsappNumber = "201092141964";
+  const whatsappNumber = "966500365101";
   const message = "مرحباً! أود التواصل معكم.";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     message

@@ -7,27 +7,24 @@ import Products from "@/components/Products";
 export default function Home() {
   const offers = [
     {
-      image: "/spices.jpg",
-      title: "بهارات مشكلة",
-      description: "أجود أنواع البهارات الطبيعية المختارة بعناية.",
-      discount: 20,
-    },
-    {
-      image: "/beans.jpg",
-      title: "حبوب متنوعة",
-      description: "حبوب صحية وطبيعية لجميع الاستخدامات.",
+      image: null,
+      title: "كركم مطحون",
+      description:
+        "كركم مطحون عالي الجودة يضيف لونًا زاهيًا ونكهة مميزة لوصفاتك.",
       discount: 15,
     },
     {
-      image: "/herbs.jpg",
-      title: "أعشاب طبيعية",
-      description: "أعشاب طازجة ومنوعة لأفضل نكهة.",
-      discount: 10,
+      image: null,
+      title: "فلفل أسود مطحون",
+      description:
+        "فلفل أسود فاخر برائحة نفّاذة تعزز طعم الأطباق وتزيدها تميزًا.",
+      discount: 12,
     },
     {
-      image: "/placeholder.png",
-      title: "أعشاب طبيعية",
-      description: "أعشاب طازجة ومنوعة لأفضل نكهة.",
+      image: null,
+      title: "سمسم",
+      description:
+        "سمسم محمص طازج بنكهة غنية يكمّل الحلويات والمخبوزات بأصالة.",
       discount: 10,
     },
   ];

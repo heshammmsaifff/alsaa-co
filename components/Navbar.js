@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { ShoppingBag, Phone, Home, ShoppingCart, Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,7 +43,7 @@ const Navbar = () => {
           href="/"
           className="text-2xl md:text-3xl font-extrabold text-green-800 hover:text-green-700 transition duration-300 flex items-center gap-2 mx-auto sm:mx-0"
         >
-          🌿
+          <img src="/sa3.jpg" alt="logo" width={60} className="rounded-full" />
         </Link>
 
         {/* ☰ Menu Button (Mobile) */}
