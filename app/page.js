@@ -7,21 +7,21 @@ import Products from "@/components/Products";
 export default function Home() {
   const offers = [
     {
-      image: null,
+      image: "./images/fourteen.png",
       title: "كركم مطحون",
       description:
         "كركم مطحون عالي الجودة يضيف لونًا زاهيًا ونكهة مميزة لوصفاتك.",
       discount: 15,
     },
     {
-      image: null,
+      image: "./images/ten.png",
       title: "فلفل أسود مطحون",
       description:
         "فلفل أسود فاخر برائحة نفّاذة تعزز طعم الأطباق وتزيدها تميزًا.",
       discount: 12,
     },
     {
-      image: null,
+      image: "./images/eighteen.png",
       title: "سمسم",
       description:
         "سمسم محمص طازج بنكهة غنية يكمّل الحلويات والمخبوزات بأصالة.",

@@ -33,7 +33,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4 rounded-3xl backdrop-blur-md
         ${
           isScrolled
-            ? "bg-white/30 shadow-sm border-b border-white/20 text-green-900"
+            ? "bg-white/50 shadow-sm border-b border-white/20 text-green-900"
             : "bg-white/50 shadow-md border-b border-white/40 text-green-800"
         }`}
     >
@@ -43,7 +43,12 @@ const Navbar = () => {
           href="/"
           className="text-2xl md:text-3xl font-extrabold text-green-800 hover:text-green-700 transition duration-300 flex items-center gap-2 mx-auto sm:mx-0"
         >
-          <img src="/sa3.jpg" alt="logo" width={60} className="rounded-full" />
+          <img
+            src="/sa3.jpg"
+            alt="logo"
+            width={120}
+            className="rounded-full "
+          />
         </Link>
 
         {/* ☰ Menu Button (Mobile) */}
@@ -78,7 +83,7 @@ ${menuOpen ? "mt-2" : ""}
 ${
   link.isSpecial
     ? "text-red-600 border-red-100 hover:text-red-400 font-semibold shadow-sm bg-red-200"
-    : "text-green-900 border-transparent hover:text-green-700 shadow-sm bg-amber-100"
+    : "text-[#133752] border-transparent hover:text-[#8a9ba5] shadow-sm bg-amber-100"
 }`}
             >
               {link.icon}

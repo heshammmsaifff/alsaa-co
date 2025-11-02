@@ -176,7 +176,7 @@ export default function Contact() {
           className={`w-full font-bold py-3 rounded-lg transition-all ${
             loading
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-green-600 hover:bg-green-700 text-white"
+              : "bg-[#133752] hover:bg-green-700 text-white"
           }`}
         >
           {loading ? "⏳ جاري إرسال رسالتك..." : "إرسال الآن"}

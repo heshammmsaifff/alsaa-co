@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container mx-auto px-5 md:px-20 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* 🌿 Logo & Short Description */}
         <div>
-          <h2 className="text-2xl font-extrabold text-green-400 flex items-center gap-2">
+          <h2 className="text-2xl font-extrabold text-[#2c6896] flex items-center gap-2">
             🌿 الصاع
           </h2>
           <p className="mt-3 text-gray-300">

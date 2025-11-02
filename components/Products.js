@@ -15,12 +15,12 @@ export default function Products() {
       title: "ذرة حمراء بلدي",
       description:
         "حبوب طبيعية بطعم أصيل تضيف غنى ولونًا مميزًا لأطباقك التقليدية.",
-      image: null,
+      image: "./images/one.png",
     },
     {
       title: "ذرة بيضاء بلدي",
       description: "ذرة نقية وناعمة بطعم ريفي يعبّر عن جودة الزراعة المحلية.",
-      image: null,
+      image: "./images/two.png",
     },
     {
       title: "حبش وطني",
@@ -31,110 +31,110 @@ export default function Products() {
       title: "بر قصيمي",
       description:
         "بر فاخر من أرض القصيم بطعم تراثي غني ومذاق يعبّر عن الأصالة.",
-      image: null,
+      image: "./images/four.png",
     },
     {
       title: "دخن يمني",
       description:
         "دخن طبيعي عالي الجودة بطعم فريد يمنح أطباقك نكهة شرقية مميزة.",
-      image: null,
+      image: "./images/five.png",
     },
     {
       title: "شعير وطني",
       description:
         "شعير سعودي نقي مثالي للمشروبات أو الوصفات الصحية التقليدية.",
-      image: null,
+      image: "./images/six.png",
     },
     {
       title: "دخن هندي",
       description:
         "حبوب دخن فاخرة بطابع هندي تضيف نكهة عميقة ولمسة مميزة لأكلك.",
-      image: null,
+      image: "./images/seven.png",
     },
     {
       title: "سدر ناعم",
       description:
         "سدر طبيعي مطحون برائحة زكية وفوائد لا تُعدّ من قلب الطبيعة.",
-      image: null,
+      image: "./images/eight.png",
     },
     {
       title: "كمون مطحون",
       description: "كمون طازج بطعم قوي يضيف نكهة عربية أصيلة لكل وجبة.",
-      image: null,
+      image: "./images/nine.png",
     },
     {
       title: "فلفل أسود مطحون",
       description:
         "فلفل أسود فاخر برائحة نفّاذة تعزز طعم الأطباق وتزيدها تميزًا.",
-      image: null,
+      image: "./images/ten.png",
     },
     {
       title: "كزبرة مطحون",
       description:
         "كزبرة مطحونة طازجة بنكهة دافئة تعطي أطباقك لمسة عطرية لذيذة.",
-      image: null,
+      image: "./images/eleven.png",
     },
     {
       title: "زعتر بري حبشي",
       description:
         "زعتر جبلي عطِر من أجود الأنواع بنكهة طبيعية قوية وطابع بري أصيل.",
-      image: null,
+      image: "./images/twelve.png",
     },
     {
       title: "إكليل الجبل حبشي",
       description: "أعشاب عطرية فاخرة تضيف لمسة راقية ونكهة منعشة لأطعمتك.",
-      image: null,
+      image: "./images/thirteen.png",
     },
     {
       title: "كركم حبشي",
       description: "كركم نقي بلون ذهبي زاهي يعزز النكهة ويضفي لمسة صحية مميزة.",
-      image: null,
+      image: "./images/fourteen.png",
     },
     {
       title: "كركديه مصري",
       description: "كركديه طبيعي بلونه الأحمر الغني وطعمه المنعش لكل الأوقات.",
-      image: null,
+      image: "./images/fifteen.png",
     },
     {
       title: "كركم مطحون",
       description:
         "كركم مطحون عالي الجودة يضيف لونًا زاهيًا ونكهة مميزة لوصفاتك.",
-      image: null,
+      image: "./images/sixteen.png",
     },
     {
       title: "زنجبيل",
       description:
         "زنجبيل طبيعي بطعمه الحار العطري المثالي للمشروبات والأكلات الشرقية.",
-      image: null,
+      image: "./images/seventeen.png",
     },
     {
       title: "سمسم",
       description:
         "سمسم محمص طازج بنكهة غنية يكمّل الحلويات والمخبوزات بأصالة.",
-      image: null,
+      image: "./images/eighteen.png",
     },
     {
       title: "كزبر حب",
       description: "كزبرة حبوب طازجة تمنح نكهة قوية وعطر مميز في كل طبق.",
-      image: null,
+      image: "./images/nineteen.png",
     },
     {
       title: "شيبة",
       description:
         "عشبة عطرية مميزة بطعم قوي تُستخدم لإضافة نكهة تقليدية أصيلة.",
-      image: null,
+      image: "./images/twenty.png",
     },
     {
       title: "دجرة",
       description:
         "حبوب طبيعية غنية بالطعم والمذاق الريفي، مثالية للوصفات الشعبية.",
-      image: null,
+      image: "./images/twentyone.png",
     },
     {
       title: "مشكل حمام",
       description:
         "خليط فاخر من الحبوب المختارة لتغذية متكاملة ومتوازنة للحمام.",
-      image: null,
+      image: "./images/twentytwo.png",
     },
   ];
 
@@ -232,9 +232,9 @@ export default function Products() {
   return (
     <section
       id="products"
-      className="px-6 md:px-16 lg:px-24 py-14 bg-gradient-to-b from-green-50 to-green-100"
+      className="px-6 md:px-16 lg:px-24 py-14 bg-[#e3d4ab] from-green-50 to-green-100"
     >
-      <h2 className="text-4xl font-extrabold mb-10 text-center text-green-700">
+      <h2 className="text-4xl font-extrabold mb-10 text-center text-[#133752]">
         جميع المنتجات
       </h2>
 
@@ -254,7 +254,7 @@ export default function Products() {
             <img
               src={product.image || "/placeholder.png"}
               alt={product.title}
-              className="w-full h-48 object-cover rounded-xl mb-4"
+              className="w-full h-80 object-cover rounded-xl mb-4"
             />
             <h3 className="text-xl font-bold text-gray-800 mb-2">
               {product.title}
@@ -272,7 +272,7 @@ export default function Products() {
                 // reset form when opening modal
                 setForm({ name: "", phone: "", address: "" });
               }}
-              className="bg-green-700 text-white font-semibold py-2 px-5 rounded-full"
+              className="bg-[#133752] text-white font-semibold py-2 px-5 rounded-full"
             >
               تواصل معنا
             </motion.button>
@@ -306,7 +306,7 @@ export default function Products() {
                 ✖
               </button>
 
-              <h2 className="text-xl font-bold text-center mb-4 text-green-700">
+              <h2 className="text-xl font-bold text-center mb-4 text-[#133752]">
                 استفسار عن: {selectedProduct.title}
               </h2>
 
@@ -343,7 +343,7 @@ export default function Products() {
                   whileTap={{ scale: 0.96 }}
                   type="submit"
                   disabled={submitting}
-                  className={`mt-3 bg-green-700 text-white font-bold py-2 rounded-full transition-all duration-300 ${
+                  className={`mt-3 bg-[#133752] text-white font-bold py-2 rounded-full transition-all duration-300 ${
                     submitting ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >

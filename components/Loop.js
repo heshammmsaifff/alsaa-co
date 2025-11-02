@@ -12,7 +12,7 @@ const Loop1 = ({
   speed = 25,
 }) => {
   return (
-    <div className="w-full overflow-hidden bg-amber-300 py-4" dir="ltr">
+    <div className="w-full overflow-hidden bg-[#dbbc66] py-4" dir="ltr">
       <div className="relative flex">
         <div
           className="flex animate-marquee whitespace-nowrap"

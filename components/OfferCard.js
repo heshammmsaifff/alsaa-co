@@ -112,7 +112,7 @@ export default function OfferCard({ image, title, description, discount }) {
           <img
             src={image || "/placeholder.png"}
             alt={title}
-            className="w-full h-48 object-cover"
+            className="w-full h-80 object-cover"
           />
           {discount && (
             <span className="absolute top-3 left-3 bg-red-500 text-white font-bold px-3 py-1 rounded-full text-sm">
@@ -127,7 +127,7 @@ export default function OfferCard({ image, title, description, discount }) {
           </div>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="mt-4 bg-green-700 hover:bg-green-800 text-white font-semibold py-2 px-4 rounded-full transition duration-300"
+            className="mt-4 bg-[#133752] hover:bg-green-800 text-white font-semibold py-2 px-4 rounded-full transition duration-300"
           >
             المزيد من التفاصيل
           </button>
@@ -193,7 +193,7 @@ export default function OfferCard({ image, title, description, discount }) {
                   whileHover={{ backgroundColor: "#166534" }}
                   type="submit"
                   disabled={submitting}
-                  className={`mt-3 bg-green-700 text-white font-bold py-2 rounded-full transition-all duration-300 ${
+                  className={`mt-3 bg-[#133752] text-white font-bold py-2 rounded-full transition-all duration-300 ${
                     submitting ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
