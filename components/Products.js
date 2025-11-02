@@ -25,7 +25,7 @@ export default function Products() {
     {
       title: "حبش وطني",
       description: "حبوب مختارة بعناية بطابع سعودي أصيل وجودة تفوق التوقعات.",
-      image: null,
+      image: "./images/three.png",
     },
     {
       title: "بر قصيمي",
