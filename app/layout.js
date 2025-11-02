@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl" data-scroll-behavior="smooth">
       <head>
-        <link rel="icon" href="/fav.png" />
+        <link rel="icon" href="/sa3.jpg" />
       </head>
       <body className={tajawal.className}>
         <Navbar />
