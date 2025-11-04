@@ -233,6 +233,7 @@ export default function Products() {
     <section
       id="products"
       className="px-6 md:px-16 lg:px-24 py-14 bg-[#e3d4ab] from-green-50 to-green-100"
+      style={{ backgroundImage: "url('/bgp.jpg')" }}
     >
       <h2 className="text-4xl font-extrabold mb-10 text-center text-[#133752]">
         جميع المنتجات
