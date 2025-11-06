@@ -24,9 +24,9 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/sa3.jpg" />
       </head>
       <body className={tajawal.className}>
-        <Navbar />
+        {/* <Navbar /> */}
         <main>{children}</main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
