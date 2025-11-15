@@ -2,6 +2,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Tajawal } from "next/font/google";
+import { AuthProvider } from "@/contexts/AuthContext"; // ✅ استيراد الـ Provider
+import { CartProvider } from "@/contexts/CartContext";
 
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
@@ -24,9 +26,13 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/sa3.jpg" />
       </head>
       <body className={tajawal.className}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <AuthProvider>
+          <CartProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

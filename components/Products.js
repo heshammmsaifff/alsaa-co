@@ -2,135 +2,163 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { supabase } from "@/lib/supabase";
+import { useAuth } from "@/contexts/AuthContext";
+import { useCart } from "@/contexts/CartContext";
+import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 
 export default function Products() {
+  const { user } = useAuth();
+  const { addToCart } = useCart();
+  const router = useRouter();
+
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [form, setForm] = useState({ name: "", phone: "", address: "" });
-  const [submitting, setSubmitting] = useState(false);
+  const [quantity, setQuantity] = useState("");
+  const [unit, setUnit] = useState("gram"); // الافتراضي جرام
 
   const products = [
     {
+      id: 1,
       title: "ذرة حمراء بلدي",
       description:
         "حبوب طبيعية بطعم أصيل تضيف غنى ولونًا مميزًا لأطباقك التقليدية.",
       image: "./images/one.png",
     },
     {
+      id: 2,
       title: "ذرة بيضاء بلدي",
       description: "ذرة نقية وناعمة بطعم ريفي يعبّر عن جودة الزراعة المحلية.",
       image: "./images/two.png",
     },
     {
+      id: 3,
       title: "حبش وطني",
       description: "حبوب مختارة بعناية بطابع سعودي أصيل وجودة تفوق التوقعات.",
       image: "./images/three.png",
     },
     {
+      id: 4,
       title: "بر قصيمي",
       description:
         "بر فاخر من أرض القصيم بطعم تراثي غني ومذاق يعبّر عن الأصالة.",
       image: "./images/four.png",
     },
     {
+      id: 5,
       title: "دخن يمني",
       description:
         "دخن طبيعي عالي الجودة بطعم فريد يمنح أطباقك نكهة شرقية مميزة.",
       image: "./images/five.png",
     },
     {
+      id: 6,
       title: "شعير وطني",
       description:
         "شعير سعودي نقي مثالي للمشروبات أو الوصفات الصحية التقليدية.",
       image: "./images/six.png",
     },
     {
+      id: 7,
       title: "دخن هندي",
       description:
         "حبوب دخن فاخرة بطابع هندي تضيف نكهة عميقة ولمسة مميزة لأكلك.",
       image: "./images/seven.png",
     },
     {
+      id: 8,
       title: "سدر ناعم",
       description:
         "سدر طبيعي مطحون برائحة زكية وفوائد لا تُعدّ من قلب الطبيعة.",
       image: "./images/eight.png",
     },
     {
+      id: 9,
       title: "كمون مطحون",
       description: "كمون طازج بطعم قوي يضيف نكهة عربية أصيلة لكل وجبة.",
       image: "./images/nine.png",
     },
     {
+      id: 10,
       title: "فلفل أسود مطحون",
       description:
         "فلفل أسود فاخر برائحة نفّاذة تعزز طعم الأطباق وتزيدها تميزًا.",
       image: "./images/ten.png",
     },
     {
+      id: 11,
       title: "كزبرة مطحون",
       description:
         "كزبرة مطحونة طازجة بنكهة دافئة تعطي أطباقك لمسة عطرية لذيذة.",
       image: "./images/eleven.png",
     },
     {
+      id: 12,
       title: "زعتر بري حبشي",
       description:
         "زعتر جبلي عطِر من أجود الأنواع بنكهة طبيعية قوية وطابع بري أصيل.",
       image: "./images/twelve.png",
     },
     {
+      id: 13,
       title: "إكليل الجبل حبشي",
       description: "أعشاب عطرية فاخرة تضيف لمسة راقية ونكهة منعشة لأطعمتك.",
       image: "./images/thirteen.png",
     },
     {
+      id: 14,
       title: "كركم حبشي",
       description: "كركم نقي بلون ذهبي زاهي يعزز النكهة ويضفي لمسة صحية مميزة.",
       image: "./images/fourteen.png",
     },
     {
+      id: 15,
       title: "كركديه مصري",
       description: "كركديه طبيعي بلونه الأحمر الغني وطعمه المنعش لكل الأوقات.",
       image: "./images/fifteen.png",
     },
     {
+      id: 16,
       title: "كركم مطحون",
       description:
         "كركم مطحون عالي الجودة يضيف لونًا زاهيًا ونكهة مميزة لوصفاتك.",
       image: "./images/sixteen.png",
     },
     {
+      id: 17,
       title: "زنجبيل",
       description:
         "زنجبيل طبيعي بطعمه الحار العطري المثالي للمشروبات والأكلات الشرقية.",
       image: "./images/seventeen.png",
     },
     {
+      id: 18,
       title: "سمسم",
       description:
         "سمسم محمص طازج بنكهة غنية يكمّل الحلويات والمخبوزات بأصالة.",
       image: "./images/eighteen.png",
     },
     {
+      id: 19,
       title: "كزبر حب",
       description: "كزبرة حبوب طازجة تمنح نكهة قوية وعطر مميز في كل طبق.",
       image: "./images/nineteen.png",
     },
     {
+      id: 20,
       title: "شيبة",
       description:
         "عشبة عطرية مميزة بطعم قوي تُستخدم لإضافة نكهة تقليدية أصيلة.",
       image: "./images/twenty.png",
     },
     {
+      id: 21,
       title: "دجرة",
       description:
         "حبوب طبيعية غنية بالطعم والمذاق الريفي، مثالية للوصفات الشعبية.",
       image: "./images/twentyone.png",
     },
     {
+      id: 22,
       title: "مشكل حمام",
       description:
         "خليط فاخر من الحبوب المختارة لتغذية متكاملة ومتوازنة للحمام.",
@@ -138,150 +166,98 @@ export default function Products() {
     },
   ];
 
-  // helper validators
-  const nameRegex = /^[\p{L}\s]{2,50}$/u; // letters+spaces only, 2-50 chars
-  // allow up to 4 words
-  const maxNameWords = 4;
-  const phoneRegex = /^[0-9]{8,15}$/; // 8-15 digits
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // client-side validation
-    const nameTrim = form.name.trim();
-    const wordCount = nameTrim === "" ? 0 : nameTrim.split(/\s+/).length;
-
-    if (!nameRegex.test(nameTrim) || wordCount > maxNameWords) {
+  // فتح المودال
+  const handleAddToCartClick = (product) => {
+    if (!user) {
       Swal.fire({
         icon: "warning",
-        title: "الاسم غير صالح",
-        html: `الرجاء إدخال اسم صحيح ${maxNameWords}.`,
+        title: "الرجاء تسجيل الدخول أولاً",
         confirmButtonColor: "#166534",
-      });
+      }).then(() => router.push("/login"));
       return;
     }
-
-    if (!phoneRegex.test(form.phone.trim())) {
-      Swal.fire({
-        icon: "warning",
-        title: "رقم الهاتف غير صالح",
-        html: `الرجاء إدخال رقم هاتف مكوّن من أرقام فقط.`,
-        confirmButtonColor: "#166534",
-      });
-      return;
-    }
-
-    if (!form.address.trim()) {
-      Swal.fire({
-        icon: "warning",
-        title: "العنوان مطلوب",
-        text: "الرجاء إدخال العنوان.",
-        confirmButtonColor: "#166534",
-      });
-      return;
-    }
-
-    setSubmitting(true);
-
-    try {
-      const { error } = await supabase.from("contact_messages").insert([
-        {
-          name: nameTrim,
-          phone: form.phone.trim(),
-          address: form.address.trim(),
-          message: `استفسار عن المنتج: ${selectedProduct.title}`,
-        },
-      ]);
-
-      if (error) throw error;
-
-      await Swal.fire({
-        icon: "success",
-        title: "تم الإرسال ✅",
-        text: "تم إرسال بياناتك بنجاح! سنعود إليك قريباً.",
-        confirmButtonColor: "#166534",
-      });
-
-      setForm({ name: "", phone: "", address: "" });
-      setSelectedProduct(null);
-    } catch (err) {
-      console.error("Supabase insert error:", err);
-      Swal.fire({
-        icon: "error",
-        title: "حدث خطأ",
-        text: "حصل خطأ أثناء إرسال البيانات. حاول مرة أخرى لاحقًا.",
-        confirmButtonColor: "#b91c1c",
-      });
-    } finally {
-      setSubmitting(false);
-    }
+    setSelectedProduct(product);
+    setQuantity("");
+    setUnit("gram");
   };
 
-  // restrict name input to letters and spaces as user types
-  const handleNameChange = (e) => {
-    // allow letters and spaces only
-    const cleaned = e.target.value.replace(/[^\p{L}\s]/gu, "");
-    setForm((s) => ({ ...s, name: cleaned }));
-  };
+  // تأكيد الكمية والإضافة للسلة
+  const handleConfirmQuantity = () => {
+    if (!quantity || isNaN(quantity) || Number(quantity) <= 0) {
+      Swal.fire({
+        icon: "warning",
+        title: "الكمية غير صالحة",
+        text: "الرجاء إدخال كمية صحيحة بالجرام أو الكيلو.",
+        confirmButtonColor: "#166534",
+      });
+      return;
+    }
 
-  // restrict phone input to digits only as user types
-  const handlePhoneChange = (e) => {
-    const cleaned = e.target.value.replace(/[^0-9]/g, "");
-    setForm((s) => ({ ...s, phone: cleaned }));
+    addToCart({ ...selectedProduct, unit }, Number(quantity));
+
+    Swal.fire({
+      icon: "success",
+      title: "تمت الإضافة للسلة",
+      html: `المنتج: <b>${
+        selectedProduct.title
+      }</b><br>الكمية: <b>${quantity} ${unit === "gram" ? "غ" : "كغ"}</b>`,
+      confirmButtonColor: "#166534",
+    });
+
+    setSelectedProduct(null);
+    setQuantity("");
   };
 
   return (
     <section
       id="products"
-      className="px-6 md:px-16 lg:px-24 py-14 bg-[#e3d4ab] from-green-50 to-green-100"
+      className="px-6 md:px-16 lg:px-24 py-14 bg-[#e3d4ab]"
       style={{ backgroundImage: "url('/bgp.jpg')" }}
     >
       <h2 className="text-4xl font-extrabold mb-10 text-center text-[#133752]">
         جميع المنتجات
       </h2>
 
-      {/* شبكة الكروت */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map((product, idx) => (
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+        {products.map((product) => (
           <motion.div
-            key={idx}
+            key={product.id}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.3 }}
             whileHover={{ scale: 1.03, y: -5, transition: { duration: 0.15 } }}
             className="bg-white rounded-2xl shadow-md p-5 flex flex-col items-center text-center transition-all duration-300"
           >
-            <img
-              src={product.image || "/placeholder.png"}
-              alt={product.title}
-              className="w-full h-80 object-cover rounded-xl mb-4"
-            />
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
+            <div className="w-full aspect-square mb-4">
+              <img
+                src={product.image || "/placeholder.png"}
+                alt={product.title}
+                className="w-full h-full object-cover rounded-xl"
+              />
+            </div>
+            <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
               {product.title}
             </h3>
-            <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-
+            <p className="text-gray-600 mb-4 text-sm md:text-base">
+              {product.description}
+            </p>
             <motion.button
               whileTap={{ scale: 0.95 }}
               whileHover={{
                 backgroundColor: "#166534",
                 transition: { duration: 0.2 },
               }}
-              onClick={() => {
-                setSelectedProduct(product);
-                // reset form when opening modal
-                setForm({ name: "", phone: "", address: "" });
-              }}
+              onClick={() => handleAddToCartClick(product)}
               className="bg-[#133752] text-white font-semibold py-2 px-5 rounded-full"
             >
-              تواصل معنا
+              اختيار الكمية
             </motion.button>
           </motion.div>
         ))}
       </div>
 
-      {/* مودال التواصل */}
+      {/* مودال إدخال الكمية */}
       <AnimatePresence>
         {selectedProduct && (
           <motion.div
@@ -308,49 +284,59 @@ export default function Products() {
               </button>
 
               <h2 className="text-xl font-bold text-center mb-4 text-[#133752]">
-                استفسار عن: {selectedProduct.title}
+                {selectedProduct.title}
               </h2>
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                <input
-                  type="text"
-                  placeholder="الاسم"
-                  className="border rounded-xl px-4 py-2 focus:outline-green-700"
-                  value={form.name}
-                  onChange={handleNameChange}
-                  inputMode="text"
-                />
+              <p className="text-gray-600 mb-4">
+                {selectedProduct.description}
+              </p>
+              <p className="text-gray-800 mb-4 font-bold">
+                برجاء تحديد الكمية المطلوبة
+              </p>
+
+              <div className="flex flex-col gap-4">
+                <div className="flex justify-center gap-6">
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      name="unit"
+                      value="gram"
+                      checked={unit === "gram"}
+                      onChange={() => setUnit("gram")}
+                    />
+                    جرام
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      name="unit"
+                      value="kg"
+                      checked={unit === "kg"}
+                      onChange={() => setUnit("kg")}
+                    />
+                    كيلو
+                  </label>
+                </div>
 
                 <input
-                  type="tel"
-                  placeholder="رقم الهاتف"
-                  className="border rounded-xl px-4 py-2 focus:outline-green-700"
-                  value={form.phone}
-                  onChange={handlePhoneChange}
-                  inputMode="tel"
-                />
-
-                <input
-                  type="text"
-                  placeholder="العنوان"
-                  className="border rounded-xl px-4 py-2 focus:outline-green-700"
-                  value={form.address}
-                  onChange={(e) =>
-                    setForm((s) => ({ ...s, address: e.target.value }))
-                  }
+                  type="number"
+                  min={0}
+                  placeholder={`أدخل الكمية بال${
+                    unit === "gram" ? "جرام" : "كيلوجرام"
+                  }`}
+                  className="border rounded-xl px-4 py-2 focus:outline-green-700 w-full text-center"
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
                 />
 
                 <motion.button
                   whileTap={{ scale: 0.96 }}
-                  type="submit"
-                  disabled={submitting}
-                  className={`mt-3 bg-[#133752] text-white font-bold py-2 rounded-full transition-all duration-300 ${
-                    submitting ? "opacity-70 cursor-not-allowed" : ""
-                  }`}
+                  onClick={handleConfirmQuantity}
+                  className="mt-2 bg-[#133752] text-white font-bold py-2 rounded-full w-full"
                 >
-                  {submitting ? "⏳ جاري الإرسال..." : "إرسال"}
+                  تأكيد و إضافة للسلة
                 </motion.button>
-              </form>
+              </div>
             </motion.div>
           </motion.div>
         )}

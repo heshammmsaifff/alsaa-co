@@ -5,29 +5,29 @@ import Loop1 from "@/components/Loop1";
 import Products from "@/components/Products";
 
 export default function Home() {
-  const offers = [
-    {
-      image: "./images/fourteen.png",
-      title: "كركم مطحون",
-      description:
-        "كركم مطحون عالي الجودة يضيف لونًا زاهيًا ونكهة مميزة لوصفاتك.",
-      discount: 15,
-    },
-    {
-      image: "./images/ten.png",
-      title: "فلفل أسود مطحون",
-      description:
-        "فلفل أسود فاخر برائحة نفّاذة تعزز طعم الأطباق وتزيدها تميزًا.",
-      discount: 12,
-    },
-    {
-      image: "./images/eighteen.png",
-      title: "سمسم",
-      description:
-        "سمسم محمص طازج بنكهة غنية يكمّل الحلويات والمخبوزات بأصالة.",
-      discount: 10,
-    },
-  ];
+  // const offers = [
+  //   {
+  //     image: "./images/fourteen.png",
+  //     title: "كركم مطحون",
+  //     description:
+  //       "كركم مطحون عالي الجودة يضيف لونًا زاهيًا ونكهة مميزة لوصفاتك.",
+  //     discount: 15,
+  //   },
+  //   {
+  //     image: "./images/ten.png",
+  //     title: "فلفل أسود مطحون",
+  //     description:
+  //       "فلفل أسود فاخر برائحة نفّاذة تعزز طعم الأطباق وتزيدها تميزًا.",
+  //     discount: 12,
+  //   },
+  //   {
+  //     image: "./images/eighteen.png",
+  //     title: "سمسم",
+  //     description:
+  //       "سمسم محمص طازج بنكهة غنية يكمّل الحلويات والمخبوزات بأصالة.",
+  //     discount: 10,
+  //   },
+  // ];
 
   return (
     <>
@@ -38,7 +38,7 @@ export default function Home() {
       <Loop />
 
       {/* offersCard */}
-      <section
+      {/* <section
         className="pb-10 px-5 bg-cover bg-center relative"
         style={{ backgroundImage: "url('/bg.jpg')" }}
         id="offers"
@@ -59,13 +59,13 @@ export default function Home() {
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 from-white/40 to-transparent"></div>
-      </section>
-
-      {/* loop1 Component */}
-      <Loop1 />
+      </section> */}
 
       {/* products component */}
       <Products />
+
+      {/* loop1 Component */}
+      <Loop1 />
     </>
   );
 }
