@@ -1,35 +1,37 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import Swal from "sweetalert2";
 
 export default function ResetPasswordPage() {
-  const searchParams = useSearchParams();
   const router = useRouter();
-  const [accessToken, setAccessToken] = useState(null);
-
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [sessionReady, setSessionReady] = useState(false);
 
-  // جلب الـ access_token بأمان بعد التأكد من وجود window
+  // 📌 Supabase يرسل session جديدة عند فتح رابط إعادة التعيين
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const token = searchParams.get("access_token");
-      setAccessToken(token);
-    }
-  }, [searchParams]);
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        if (event === "PASSWORD_RECOVERY") {
+          setSessionReady(true);
+        }
+      }
+    );
+
+    return () => authListener.subscription.unsubscribe();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!accessToken) {
+    if (!sessionReady) {
       Swal.fire({
         icon: "error",
-        title: "رابط إعادة التعيين غير صالح",
-        text: "الرجاء طلب رابط جديد لإعادة تعيين كلمة المرور.",
+        title: "رابط إعادة التعيين غير صالح أو منتهي",
         confirmButtonColor: "#166534",
       });
       return;
@@ -47,11 +49,7 @@ export default function ResetPasswordPage() {
     setLoading(true);
 
     try {
-      const { error } = await supabase.auth.updateUser(
-        { password },
-        { accessToken }
-      );
-
+      const { error } = await supabase.auth.updateUser({ password });
       if (error) throw error;
 
       Swal.fire({
@@ -60,11 +58,10 @@ export default function ResetPasswordPage() {
         confirmButtonColor: "#166534",
       }).then(() => router.push("/login"));
     } catch (err) {
-      console.error(err);
       Swal.fire({
         icon: "error",
         title: "حدث خطأ أثناء إعادة تعيين كلمة المرور",
-        text: err.message || "حاول مرة أخرى لاحقاً.",
+        text: err.message,
         confirmButtonColor: "#166534",
       });
     } finally {
@@ -74,7 +71,7 @@ export default function ResetPasswordPage() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 px-4">
-      <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+      <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-lg">
         <h1 className="text-2xl font-bold text-center mb-6">
           إعادة تعيين كلمة المرور
         </h1>
@@ -86,23 +83,22 @@ export default function ResetPasswordPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="border rounded-lg px-4 py-3 focus:outline-green-700 w-full"
+            className="border rounded-lg px-4 py-2 focus:outline-green-700 w-full"
           />
+
           <input
             type="password"
             placeholder="تأكيد كلمة المرور"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
-            className="border rounded-lg px-4 py-3 focus:outline-green-700 w-full"
+            className="border rounded-lg px-4 py-2 focus:outline-green-700 w-full"
           />
 
           <button
             type="submit"
             disabled={loading}
-            className={`bg-[#166534] text-white py-3 rounded-lg hover:bg-[#14532d] transition ${
-              loading ? "opacity-70 cursor-not-allowed" : ""
-            }`}
+            className="bg-[#166534] text-white py-2 rounded-lg hover:bg-[#14532d] transition"
           >
             {loading ? "جارٍ المعالجة..." : "إعادة تعيين كلمة المرور"}
           </button>
