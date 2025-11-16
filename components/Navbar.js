@@ -35,12 +35,12 @@ const Navbar = () => {
       <header
         dir="rtl"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4
-          ${
-            isScrolled
-              ? "bg-white/80 shadow-sm border-b border-white/20 text-green-900"
-              : "bg-white/80 shadow-md border-b border-white/40 text-green-800"
-          }
-        `}
+      ${
+        isScrolled
+          ? "bg-white/80 shadow-sm border-b border-white/20 text-[#304f27]"
+          : "bg-white/80 shadow-md border-b border-white/40 text-[#68875a]"
+      }
+    `}
       >
         <div className="container mx-auto flex justify-between items-center py-4 h-18 relative">
           {/* Logo */}
@@ -63,7 +63,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="flex justify-center font-extrabold items-center gap-2 py-2 px-5 rounded-[20px] bg-amber-100 text-[#133752]"
+                  className="flex justify-center font-extrabold items-center gap-2 py-2 px-5 rounded-[20px] bg-[#f8c42e] text-[#304f27] hover:bg-[#e3b43c] transition-all duration-300"
                 >
                   {link.icon}
                   {link.name}
@@ -75,7 +75,7 @@ const Navbar = () => {
           {/* Hamburger button for mobile */}
           {isMobile && (
             <button
-              className="text-green-800 z-50"
+              className="text-[#304f27] z-50"
               onClick={() => setMenuOpen(true)}
             >
               <Menu size={28} />
@@ -96,8 +96,8 @@ const Navbar = () => {
 
           <div
             className={`fixed top-0 right-0 h-full w-64 z-50 transform transition-transform duration-300
-              bg-[#68875a] text-white shadow-xl border-l border-[#304f27] rounded-l-2xl
-              ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+          bg-[#68875a] text-white shadow-xl border-l border-[#304f27] rounded-l-2xl
+          ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
           >
             <div className="flex justify-between items-center p-4 border-b border-[#304f27]">
               <span className="font-bold text-lg">القائمة</span>
@@ -112,7 +112,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-[#304f27]"
+                  className="flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-[#e3b43c] hover:text-[#304f27] transition-all duration-300"
                 >
                   {link.icon}
                   {link.name}

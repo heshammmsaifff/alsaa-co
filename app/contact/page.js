@@ -24,8 +24,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ✅ تحقق من الاسم (حروف فقط، حد أقصى 4 كلمات)
-    const nameRegex = /^[\p{L}\s]{2,50}$/u; // يقبل الحروف العربية والإنجليزية فقط
+    const nameRegex = /^[\p{L}\s]{2,50}$/u;
     const wordCount = formData.name.trim().split(/\s+/).length;
     if (!nameRegex.test(formData.name) || wordCount > 4) {
       Swal.fire({
@@ -33,12 +32,11 @@ export default function Contact() {
         title: "⚠️ الاسم غير صالح",
         text: "الرجاء إدخال اسم صحيح.",
         confirmButtonText: "حسناً",
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#304f27",
       });
       return;
     }
 
-    // ✅ تحقق من رقم الهاتف (أرقام فقط)
     const phoneRegex = /^[0-9]{8,15}$/;
     if (!phoneRegex.test(formData.phone)) {
       Swal.fire({
@@ -46,7 +44,7 @@ export default function Contact() {
         title: "⚠️ رقم الهاتف غير صالح",
         text: "الرجاء إدخال رقم هاتف صحيح.",
         confirmButtonText: "حسناً",
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#304f27",
       });
       return;
     }
@@ -54,10 +52,8 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      // ⏳ تأخير وهمي 3 ثواني
-      await new Promise((r) => setTimeout(r, 3000));
+      await new Promise((r) => setTimeout(r, 1500));
 
-      // 🧾 حفظ البيانات الجديدة في Supabase (بدون التحقق من التكرار)
       const { error } = await supabase.from("contact_messages").insert([
         {
           name: formData.name,
@@ -75,6 +71,13 @@ export default function Contact() {
 
       setFormData({ name: "", phone: "", address: "", message: "" });
       setLoading(false);
+
+      // تحويل لواتساب في تبويب جديد
+      const whatsappMsg = encodeURIComponent(`مرحباً! أود التواصل معكم.`);
+      window.open(
+        `https://wa.me/${whatsappNumber}?text=${whatsappMsg}`,
+        "_blank"
+      );
     } catch (error) {
       console.error("❌ خطأ أثناء الإرسال:", error.message);
       toast.error("❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى.", {
@@ -85,7 +88,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-300 p-5 mt-17">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#f8c42e]/20 p-5">
       <Toaster
         position="top-center"
         toastOptions={{
@@ -97,73 +100,70 @@ export default function Contact() {
         }}
       />
 
-      <h1 className="text-3xl md:text-4xl font-extrabold mb-8 text-center text-green-900 mt-10">
+      <h1 className="text-3xl mt-20 md:text-4xl font-extrabold mb-8 text-center text-[#304f27]">
         تواصل معنا الآن لمعرفة المزيد!
       </h1>
 
-      {/* زر واتساب */}
-      <a
-        href={whatsappLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold py-4 w-64 rounded-lg shadow-lg transition-all duration-300 mb-4"
-      >
-        <MessageCircle size={28} />
-        تواصل عبر واتساب
-      </a>
+      {/* أزرار التواصل */}
+      <div className="flex flex-col md:flex-row items-center gap-4 mb-10">
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-3 bg-[#68875a] hover:bg-[#304f27] text-white font-bold py-4 px-6 rounded-lg shadow-lg transition-all duration-300"
+        >
+          <MessageCircle size={28} />
+          واتساب
+        </a>
 
-      {/* زر الاتصال */}
-      <a
-        href={`tel:+${whatsappNumber}`}
-        className="flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 w-64 rounded-lg shadow-lg transition-all duration-300 mb-10"
-      >
-        <Phone size={28} />
-        اتصال مباشر
-      </a>
+        <a
+          href={`tel:+${whatsappNumber}`}
+          className="flex items-center justify-center gap-3 bg-[#e3b43c] hover:bg-[#f8c42e] text-white font-bold py-4 px-6 rounded-lg shadow-lg transition-all duration-300"
+        >
+          <Phone size={28} />
+          اتصال مباشر
+        </a>
+      </div>
 
       {/* نموذج التواصل */}
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-xl shadow-md w-full max-w-md"
+        className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md flex flex-col gap-4"
       >
-        <label className="block mb-2 font-bold text-green-800">الاسم</label>
+        <label className="font-bold text-[#304f27]">الاسم</label>
         <input
           type="text"
           required
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-[#68875a]"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
         />
 
-        <label className="block mb-2 font-bold text-green-800">
-          رقم الهاتف (واتساب)
-        </label>
+        <label className="font-bold text-[#304f27]">رقم الهاتف (واتساب)</label>
         <input
           type="tel"
           required
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-[#68875a]"
           value={formData.phone}
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
         />
 
-        <label className="block mb-2 font-bold text-green-800">العنوان</label>
+        <label className="font-bold text-[#304f27]">العنوان</label>
         <input
           type="text"
           required
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-[#68875a]"
           value={formData.address}
           onChange={(e) =>
             setFormData({ ...formData, address: e.target.value })
           }
         />
 
-        <label className="block mb-2 font-bold text-green-800">
-          الرسالة (اختياري)
-        </label>
+        <label className="font-bold text-[#304f27]">الرسالة (اختياري)</label>
         <textarea
           rows="4"
           placeholder="يمكنك ارسال استفسارك بشكل عام أو استفسار عن منتج معين"
-          className="w-full p-3 mb-6 border border-gray-300 rounded-lg"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-[#68875a]"
           value={formData.message}
           onChange={(e) =>
             setFormData({ ...formData, message: e.target.value })
@@ -176,7 +176,7 @@ export default function Contact() {
           className={`w-full font-bold py-3 rounded-lg transition-all ${
             loading
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-[#133752] hover:bg-green-700 text-white"
+              : "bg-[#304f27] hover:bg-[#68875a] text-white"
           }`}
         >
           {loading ? "⏳ جاري إرسال رسالتك..." : "إرسال الآن"}
