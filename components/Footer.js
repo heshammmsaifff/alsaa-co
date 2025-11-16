@@ -2,14 +2,15 @@
 
 import React from "react";
 import Link from "next/link";
+import Media from "./Media";
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-100 pt-10">
+    <footer className="bg-black/90 text-gray-100 pt-10">
       <div className="container mx-auto px-5 md:px-20 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* 🌿 Logo & Short Description */}
         <div>
-          <h2 className="text-2xl font-extrabold text-[#2c6896] flex items-center gap-2">
-            🌿 الصاع
+          <h2 className="text-2xl font-extrabold text-[#68875a] flex items-center gap-2">
+            الصاع
           </h2>
           <p className="mt-3 text-gray-300">
             نوفر أجود أنواع البهارات والحبوب الطبيعية المختارة بعناية من أفضل
@@ -35,11 +36,6 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="#offers" className="hover:text-green-400 transition">
-                العروض
-              </Link>
-            </li>
-            <li>
               <a href="/contact" className="hover:text-green-400 transition">
                 تواصل معنا
               </a>
@@ -59,6 +55,10 @@ export default function Footer() {
             </li> */}
             <li> العنوان: المملكة العربية السعودية</li>
           </ul>
+        </div>
+        <div>
+          <h3 className="font-bold mb-4">روباط التواصل الاجتماعي</h3>
+          <Media />
         </div>
       </div>
 

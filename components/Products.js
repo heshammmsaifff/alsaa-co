@@ -201,6 +201,13 @@ export default function Products() {
         confirmButtonColor: "#166534",
       });
 
+      // توجيه المستخدم إلى الواتساب
+      const whatsappMessage = encodeURIComponent("مرحبا، أود التواصل معكم");
+      window.open(
+        `https://wa.me/966500365101?text=${whatsappMessage}`,
+        "_blank"
+      );
+
       setForm({ name: "", phone: "", address: "" });
       setSelectedProduct(null);
     } catch (err) {
@@ -216,9 +223,7 @@ export default function Products() {
     }
   };
 
-  // restrict name input to letters and spaces as user types
   const handleNameChange = (e) => {
-    // allow letters and spaces only
     const cleaned = e.target.value.replace(/[^\p{L}\s]/gu, "");
     setForm((s) => ({ ...s, name: cleaned }));
   };
@@ -235,12 +240,15 @@ export default function Products() {
       className="px-6 md:px-16 lg:px-24 py-14 bg-[#e3d4ab] from-green-50 to-green-100"
       style={{ backgroundImage: "url('/bgp.jpg')" }}
     >
-      <h2 className="text-4xl font-extrabold mb-10 text-center text-[#133752]">
+      <h2 className="text-4xl font-extrabold mb-10 text-center text-[#304f27]">
         جميع المنتجات
       </h2>
+      <p className="text-3xl font-extrabold mb-10 text-center text-[#68875a]">
+        من الطبيعة مباشرةً إلي مطبخك، بنكهة لا تضاهي
+      </p>
 
       {/* شبكة الكروت */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {products.map((product, idx) => (
           <motion.div
             key={idx}
@@ -255,8 +263,9 @@ export default function Products() {
             <img
               src={product.image || "/placeholder.png"}
               alt={product.title}
-              className="w-full h-80 object-cover rounded-xl mb-4"
+              className="w-full aspect-square object-cover rounded-xl mb-4"
             />
+
             <h3 className="text-xl font-bold text-gray-800 mb-2">
               {product.title}
             </h3>
@@ -273,7 +282,7 @@ export default function Products() {
                 // reset form when opening modal
                 setForm({ name: "", phone: "", address: "" });
               }}
-              className="bg-[#133752] text-white font-semibold py-2 px-5 rounded-full"
+              className="bg-[#304f27] text-white font-semibold py-2 px-5 rounded-full"
             >
               تواصل معنا
             </motion.button>
@@ -307,7 +316,7 @@ export default function Products() {
                 ✖
               </button>
 
-              <h2 className="text-xl font-bold text-center mb-4 text-[#133752]">
+              <h2 className="text-xl font-bold text-center mb-4 text-[#304f27]">
                 استفسار عن: {selectedProduct.title}
               </h2>
 
@@ -344,7 +353,7 @@ export default function Products() {
                   whileTap={{ scale: 0.96 }}
                   type="submit"
                   disabled={submitting}
-                  className={`mt-3 bg-[#133752] text-white font-bold py-2 rounded-full transition-all duration-300 ${
+                  className={`mt-3 bg-[#68875a] text-white font-bold py-2 rounded-full transition-all duration-300 ${
                     submitting ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
