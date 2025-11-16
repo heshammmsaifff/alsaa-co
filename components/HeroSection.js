@@ -9,7 +9,7 @@ const HeroSection = () => {
   return (
     <section
       dir="rtl"
-      className="relative h-[170vh] flex items-center justify-center overflow-hidden"
+      className="relative md:h-[130vh] h-[185vh] flex items-center justify-center overflow-hidden"
     >
       {/* 🎥 فيديو الخلفية */}
       <video
@@ -33,7 +33,7 @@ const HeroSection = () => {
             transition={{ duration: 1 }}
             className="text-center md:text-cetner max-w-2xl order-2 md:order-1"
           >
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight inline-grid gap-3 mb-6">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight inline-grid gap-3 mb-6 mt-3">
               شركة الصاع{" "}
               <span className="text-[#68875a]">للتوابل والبهارات</span>
             </h1>
