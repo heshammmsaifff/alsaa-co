@@ -16,7 +16,7 @@ const Media = () => {
   return (
     <div className="flex items-center justify-center gap-4 mt-6">
       {/* Facebook */}
-      <a
+      {/* <a
         href="#"
         target="_blank"
         rel="noopener noreferrer"
@@ -24,11 +24,11 @@ const Media = () => {
         style={{ backgroundColor: "#68875a", color: "#fff" }}
       >
         <FaFacebookF />
-      </a>
+      </a> */}
 
       {/* Instagram */}
       <a
-        href="#"
+        href="https://www.instagram.com/alssaa.food/"
         target="_blank"
         rel="noopener noreferrer"
         className={`${iconStyle}`}
@@ -50,7 +50,7 @@ const Media = () => {
 
       {/* TikTok */}
       <a
-        href="#"
+        href="https://www.tiktok.com/@alssaa.food?_r=1&_t=ZS-91QHlfXz2JN"
         target="_blank"
         rel="noopener noreferrer"
         className={`${iconStyle}`}
@@ -61,7 +61,7 @@ const Media = () => {
 
       {/* Snapchat */}
       <a
-        href="#"
+        href="https://www.snapchat.com/@alssaafood"
         target="_blank"
         rel="noopener noreferrer"
         className={`${iconStyle}`}
