@@ -37,8 +37,8 @@ const Navbar = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-4
       ${
         isScrolled
-          ? "bg-white/80 shadow-sm border-b border-white/20 text-[#304f27]"
-          : "bg-white/80 shadow-md border-b border-white/40 text-[#68875a]"
+          ? "bg-[#68875a]/40 shadow-sm border-b border-white/20 text-[#304f27]"
+          : "bg-[#68875a] shadow-md border-b border-white/40 text-[#68875a]"
       }
     `}
       >
