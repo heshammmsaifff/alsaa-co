@@ -49,7 +49,7 @@ const Navbar = () => {
             className="text-2xl font-extrabold flex items-center gap-2"
           >
             <img
-              src="/sa3.jpg"
+              src="/logo2.png"
               alt="logo"
               width={120}
               className="rounded-full"
@@ -96,7 +96,7 @@ const Navbar = () => {
 
           <div
             className={`fixed top-0 right-0 h-full w-64 z-50 transform transition-transform duration-300
-          bg-[#68875a] text-white shadow-xl border-l border-[#304f27] rounded-l-2xl
+          bg-[#304f27] text-white shadow-xl border-l border-[#304f27] rounded-l-2xl
           ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
           >
             <div className="flex justify-between items-center p-4 border-b border-[#304f27]">

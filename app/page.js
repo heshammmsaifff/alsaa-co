@@ -6,29 +6,29 @@ import Products from "@/components/Products";
 import About from "@/components/About";
 
 export default function Home() {
-  const offers = [
-    {
-      image: "./images/fourteen.png",
-      title: "كركم مطحون",
-      description:
-        "كركم مطحون عالي الجودة يضيف لونًا زاهيًا ونكهة مميزة لوصفاتك.",
-      discount: 15,
-    },
-    {
-      image: "./images/ten.png",
-      title: "فلفل أسود مطحون",
-      description:
-        "فلفل أسود فاخر برائحة نفّاذة تعزز طعم الأطباق وتزيدها تميزًا.",
-      discount: 12,
-    },
-    {
-      image: "./images/eighteen.png",
-      title: "سمسم",
-      description:
-        "سمسم محمص طازج بنكهة غنية يكمّل الحلويات والمخبوزات بأصالة.",
-      discount: 10,
-    },
-  ];
+  // const offers = [
+  //   {
+  //     image: "./images/fourteen.png",
+  //     title: "كركم مطحون",
+  //     description:
+  //       "كركم مطحون عالي الجودة يضيف لونًا زاهيًا ونكهة مميزة لوصفاتك.",
+  //     discount: 15,
+  //   },
+  //   {
+  //     image: "./images/ten.png",
+  //     title: "فلفل أسود مطحون",
+  //     description:
+  //       "فلفل أسود فاخر برائحة نفّاذة تعزز طعم الأطباق وتزيدها تميزًا.",
+  //     discount: 12,
+  //   },
+  //   {
+  //     image: "./images/eighteen.png",
+  //     title: "سمسم",
+  //     description:
+  //       "سمسم محمص طازج بنكهة غنية يكمّل الحلويات والمخبوزات بأصالة.",
+  //     discount: 10,
+  //   },
+  // ];
 
   return (
     <>

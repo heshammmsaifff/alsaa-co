@@ -19,8 +19,8 @@ const About = () => {
       <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8">
         {/* النص على اليمين */}
         <div className=" text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-[#304f27]">
-            في الصاع للتوابل والبهارات
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-[#68875a]">
+            في <span className="text-[#304f27]">الصاع</span> للتوابل والبهارات
           </h2>
           <p className="text-2xl text-[#213c15] leading-relaxed mb-4 font-bold">
             نحرص على تقديم منتجات طبيعية 100%، خالية من الإضافات، مع تنوع واسع

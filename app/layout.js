@@ -1,9 +1,9 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Tajawal } from "next/font/google";
+import { Cairo } from "next/font/google";
 
-const tajawal = Tajawal({
+const cairo = Cairo({
   subsets: ["arabic", "latin"],
   weight: ["400"],
   display: "swap",
@@ -21,9 +21,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl" data-scroll-behavior="smooth">
       <head>
-        <link rel="icon" href="/sa3.jpg" />
+        <link rel="icon" href="/logo1.png" />
       </head>
-      <body className={tajawal.className}>
+      <body className={cairo.className}>
         <Navbar />
         <main>{children}</main>
         <Footer />

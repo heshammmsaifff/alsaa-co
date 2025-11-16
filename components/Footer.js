@@ -10,7 +10,7 @@ export default function Footer() {
         {/* 🌿 Logo & Short Description */}
         <div>
           <h2 className="text-2xl font-extrabold text-[#68875a] flex items-center gap-2">
-            الصاع
+            <img src="/logo1.png" alt="شعار شركة الصاع" className=" w-20" />
           </h2>
           <p className="mt-3 text-gray-300">
             نوفر أجود أنواع البهارات والحبوب الطبيعية المختارة بعناية من أفضل
